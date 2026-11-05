@@ -78,24 +78,21 @@
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 md:py-12">
     
     <!-- Top Header & Actions -->
-    <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-      <div class="flex items-center gap-3.5">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+    <header class="flex items-center justify-between gap-3 mb-7">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25 flex-shrink-0">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
         </div>
-        <div>
-          <div class="flex items-center gap-2.5">
-            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">TaskFlow</h1>
-            <span id="currentDateBadge" class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-600 dark:bg-indigo-950/70 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60"></span>
-          </div>
-          <p class="text-sm text-slate-500 dark:text-slate-400">Organize priorities, track subtasks, and stay in flow</p>
+        <div class="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+          <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">TaskFlow</h1>
+          <span id="currentDateBadge" class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-600 dark:bg-indigo-950/70 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60 whitespace-nowrap"></span>
         </div>
       </div>
 
       <!-- Utility Controls: Theme Toggle -->
-      <div class="flex items-center gap-2 self-start sm:self-auto">
+      <div class="flex items-center flex-shrink-0">
         <button id="themeToggle" aria-label="Toggle Dark Mode" class="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-amber-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition shadow-sm">
           <!-- Sun Icon -->
           <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -110,19 +107,19 @@
     </header>
 
     <!-- Productivity Stats & Progress Dashboard -->
-    <section class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 mb-6">
-      <!-- Completion Ring Card -->
-      <div class="col-span-2 sm:col-span-1 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/90 rounded-2xl p-4 shadow-sm flex items-center gap-4">
-        <div class="relative w-14 h-14 flex-shrink-0">
-          <svg class="w-14 h-14" viewBox="0 0 60 60">
-            <circle class="text-slate-100 dark:text-slate-800" stroke-width="6" stroke="currentColor" fill="transparent" r="24" cx="30" cy="30"/>
-            <circle id="progressRing" class="text-indigo-600 dark:text-indigo-400 progress-ring-circle" stroke-width="6" stroke-dasharray="150.79" stroke-dashoffset="150.79" stroke-linecap="round" stroke="currentColor" fill="transparent" r="24" cx="30" cy="30"/>
-          </svg>
-          <span id="progressPercent" class="absolute inset-0 flex items-center justify-center text-xs font-bold">0%</span>
-        </div>
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
+      <!-- Completion Card -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/90 rounded-2xl p-4 shadow-sm flex items-center justify-between">
         <div>
           <p class="text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider">Completion</p>
-          <p id="statCompletedSummary" class="text-lg font-bold text-slate-800 dark:text-slate-100 mt-0.5">0 of 0 done</p>
+          <p id="progressPercent" class="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 mt-0.5">0%</p>
+          <p id="statCompletedSummary" class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">0 of 0 done</p>
+        </div>
+        <div class="relative w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 flex items-center justify-center flex-shrink-0">
+          <svg class="w-8 h-8" viewBox="0 0 60 60">
+            <circle class="text-indigo-200/70 dark:text-indigo-900/70" stroke-width="7" stroke="currentColor" fill="transparent" r="24" cx="30" cy="30"/>
+            <circle id="progressRing" class="text-indigo-600 dark:text-indigo-400 progress-ring-circle" stroke-width="7" stroke-dasharray="150.79" stroke-dashoffset="150.79" stroke-linecap="round" stroke="currentColor" fill="transparent" r="24" cx="30" cy="30"/>
+          </svg>
         </div>
       </div>
 
@@ -133,7 +130,7 @@
           <p id="statActive" class="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-0.5">0</p>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">In progress</p>
         </div>
-        <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+        <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
       </div>
@@ -145,7 +142,7 @@
           <p id="statHighPriority" class="text-2xl font-extrabold text-amber-600 dark:text-amber-400 mt-0.5">0</p>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Needs focus</p>
         </div>
-        <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center flex-shrink-0">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/></svg>
         </div>
       </div>
@@ -157,7 +154,7 @@
           <p id="statOverdue" class="text-2xl font-extrabold text-rose-600 dark:text-rose-400 mt-0.5">0</p>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Past due date</p>
         </div>
-        <div class="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center">
+        <div class="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center flex-shrink-0">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
         </div>
       </div>
